@@ -6,7 +6,7 @@ function ProductList() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/products");
+      const response = await axios.get("https://nextgen-events-backend.onrender.com/api/products");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -24,7 +24,7 @@ function ProductList() {
   const handleDeleteProduct = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
+        await axios.delete(`https://nextgen-events-backend.onrender.com/api/products/${id}`);
         alert("Product deleted successfully!");
         fetchProducts(); // Refresh the list after deletion
       } catch (error) {
@@ -41,7 +41,7 @@ function ProductList() {
         {products.map((product) => (
           <div key={product._id} style={{ border: "1px solid #ccc", padding: "1rem", borderRadius: "8px" }}>
             <img
-              src={`http://localhost:5000${product.imageUrl}`}
+              src={`https://nextgen-events-backend.onrender.com${product.imageUrl}`}
               alt={product.name}
               style={{ width: "100%", height: "200px", marginBottom: "1rem" }}
             />

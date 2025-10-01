@@ -8,7 +8,7 @@ function EventList() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/events");
+      const response = await axios.get("https://nextgen-events-backend.onrender.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -26,7 +26,7 @@ function EventList() {
   const handleDeleteEvent = async (id) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/events/${id}`);
+        await axios.delete(`https://nextgen-events-backend.onrender.com/api/events/${id}`);
         alert("Event deleted successfully!");
         fetchEvents();
       } catch (error) {
@@ -68,7 +68,7 @@ function EventList() {
             <div key={event._id} className="event-card">
               <div className="event-card-image-wrapper">
                 <img
-                  src={`http://localhost:5000${event.imageUrl}`}
+                  src={`https://nextgen-events-backend.onrender.com${event.imageUrl}`}
                   alt={event.title}
                   className="event-card-image-full"
                 />

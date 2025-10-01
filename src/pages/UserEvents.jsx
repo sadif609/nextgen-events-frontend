@@ -14,7 +14,7 @@ function UserEvents() {
       if (!user?.email) return;
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/events?userEmail=${user.email}`);
+        const response = await axios.get(`https://nextgen-events-backend.onrender.com/api/events?userEmail=${user.email}`);
         setEvents(response.data);
       } catch (error) {
         console.error("Error fetching user events:", error);
@@ -27,7 +27,7 @@ function UserEvents() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/events/${id}`);
+        await axios.delete(`https://nextgen-events-backend.onrender.com/api/events/${id}`);
         setEvents((prev) => prev.filter((event) => event._id !== id));
         alert("Event deleted successfully!");
       } catch (error) {
@@ -58,7 +58,7 @@ function UserEvents() {
             <div className="card h-100 shadow-sm border-0">
               {event.imageUrl && (
                 <img
-                  src={`http://localhost:5000${event.imageUrl}`}
+                  src={`https://nextgen-events-backend.onrender.com${event.imageUrl}`}
                   alt="Event Banner"
                   className="card-img-top"
                   style={{ height: "180px", objectFit: "cover" }}

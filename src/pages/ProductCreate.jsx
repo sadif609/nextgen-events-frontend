@@ -43,7 +43,7 @@ function ProductCreate() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/products", formData, {
+      await axios.post("https://nextgen-events-backend.onrender.com/api/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Product created successfully!");

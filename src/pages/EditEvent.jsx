@@ -19,7 +19,7 @@ function EditEvent() {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/events/${id}`);
+        const response = await axios.get(`https://nextgen-events-backend.onrender.com/api/events/${id}`);
         setEventData(response.data);
         setLoading(false);
       } catch (error) {
@@ -40,7 +40,7 @@ function EditEvent() {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:5000/api/events/${id}`, eventData);
+      await axios.put(`https://nextgen-events-backend.onrender.com/api/events/${id}`, eventData);
       alert("Event updated successfully!");
       navigate("/added-events"); // redirect back to user event list
     } catch (error) {

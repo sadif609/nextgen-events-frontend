@@ -25,7 +25,7 @@ const Home = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/events");
+        const res = await fetch("https://nextgen-events-backend.onrender.com/api/events");
         const data = await res.json();
         setEvents(data); // Get all events for search functionality
       } catch (error) {
@@ -140,7 +140,7 @@ const Home = () => {
                   <div key={event._id} className="event-card">
                     <div className="event-card-image-wrapper">
                       <img
-                        src={`http://localhost:5000${event.imageUrl}`}
+                        src={`https://nextgen-events-backend.onrender.com${event.imageUrl}`}
                         alt={event.title}
                         className="event-card-image-full"
                       />
